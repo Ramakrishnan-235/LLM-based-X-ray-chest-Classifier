@@ -1,0 +1,28 @@
+[project]
+name = "cxr-insight-ai"
+version = "0.1.0"
+description = "Clinical AI Agent for Autonomous Chest X-Ray Triage & Multimodal Reporting"
+readme = "README.md"
+requires-python = ">=3.11"
+dependencies = [
+    "boto3>=1.34.0",
+    "numpy>=1.26.0,<2.0.0",
+    "opencv-python-headless>=4.9.0.80",
+    "pillow>=10.3.0",
+    "pydantic>=2.7.0",
+    "pydicom>=2.4.4",
+    "pyyaml>=6.0.1",
+    "torchxrayvision>=1.2.4",
+]
+
+[dependency-groups]
+dev = [
+    "pytest>=8.2.0",
+]
+
+[tool.uv]
+package = false
+
+[tool.pytest.ini_options]
+pythonpath = ["."]
+testpaths = ["tests"]
