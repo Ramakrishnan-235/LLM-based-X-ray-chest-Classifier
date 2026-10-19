@@ -1,0 +1,40 @@
+project: "CXR Insight AI"
+model_backbone: "densenet121-res224-all"
+supported_views:
+  - "PA"
+  - "AP"
+  - "UNKNOWN" # Allowed for PNG/JPEG uploads, flagged with view warning
+
+input_constraints:
+  min_height: 224
+  min_width: 224
+  min_pixel_std: 0.001
+  target_size: 224
+  border_mask_ratio: 0.08 # Top/bottom 8% inspected for burned-in text artifacts
+
+findings:
+  Cardiomegaly:
+    ui_label: "Cardiomegaly"
+    temperature: 1.15
+    low_threshold: 0.42
+    high_threshold: 0.65
+  Effusion:
+    ui_label: "Pleural Effusion"
+    temperature: 1.10
+    low_threshold: 0.45
+    high_threshold: 0.70
+  Pneumothorax:
+    ui_label: "Pneumothorax"
+    temperature: 1.20
+    low_threshold: 0.38
+    high_threshold: 0.62
+  Atelectasis:
+    ui_label: "Atelectasis"
+    temperature: 1.08
+    low_threshold: 0.40
+    high_threshold: 0.68
+  Lung Opacity:
+    ui_label: "Lung Opacity"
+    temperature: 1.12
+    low_threshold: 0.44
+    high_threshold: 0.66
